@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Multijugador</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenidos al Juego de Trivia</h1>
+        <form action="/game" method="POST">
+            <label for="username">Ingresa tu nombre:</label>
+            <input type="text" id="username" name="username" required>
+            <button type="submit">Iniciar Juego</button>
+        </form>
+    </div>
+</body>
+</html>
