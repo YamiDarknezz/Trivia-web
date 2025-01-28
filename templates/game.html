@@ -3,18 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juego - Trivia Multijugador</title>
+    <title>Trivia - {{ room_name }}</title>
     <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Sala: {{ room_name }}</h1>
-        <h2>Jugadores en la sala:</h2>
-        <ul>
-            {% for player in players %}
-                <li>{{ player }}</li>
-            {% endfor %}
-        </ul>
+        <h1>Bienvenido a la Sala: {{ room_name }}</h1>
+        <p>Aquí comenzará la partida próximamente...</p>
+        <a href="/lobby">Regresar al Lobby</a>
     </div>
 </body>
 </html>
