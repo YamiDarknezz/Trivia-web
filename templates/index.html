@@ -9,8 +9,8 @@
 <body>
     <div class="container">
         <h1>Bienvenidos al Juego de Trivia</h1>
-        <form action="/login" method="POST">
-            <label for="username">Ingresa tu nombre:</label>
+        <form action="{{ url_for('game') }}" method="POST">
+            <label for="username">Nombre de usuario:</label>
             <input type="text" id="username" name="username" required>
             <button type="submit">Entrar</button>
         </form>
