@@ -3,31 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lobby de Trivia</title>
+    <title>Lobby - Trivia Multijugador</title>
     <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Lobby de Trivia</h1>
-
-        <h2>Salas Disponibles:</h2>
-        {% if rooms %}
-            <ul>
-                {% for room_name in rooms %}
+        <h1>Bienvenido, {{ username }}</h1>
+        <h2>Jugadores en el lobby:</h2>
+        <ul>
+            {% for player in players %}
+                <li>{{ player }}</li>
+            {% endfor %}
+        </ul>
+        <h2>Salas disponibles:</h2>
+        <ul>
+            {% if rooms %}
+                {% for room, room_players in rooms.items() %}
                     <li>
-                        <a href="{{ url_for('game', room_name=room_name) }}">{{ room_name }}</a>
+                        <a href="/room/{{ room }}">{{ room }}</a> ({{ room_players | length }} jugadores)
                     </li>
                 {% endfor %}
-            </ul>
-        {% else %}
-            <p>No hay salas disponibles.</p>
-        {% endif %}
-
-        <h3>Crear Nueva Sala:</h3>
-        <form action="/lobby" method="POST">
-            <input type="text" name="room_name" placeholder="Nombre de la sala" required>
+            {% else %}
+                <p>No hay salas disponibles</p>
+            {% endif %}
+        </ul>
+        <form action="/create_room" method="POST">
+            <label for="room_name">Crear una nueva sala:</label>
+            <input type="text" id="room_name" name="room_name" required>
             <button type="submit">Crear Sala</button>
         </form>
+        <a href="/logout">Salir</a>
     </div>
 </body>
 </html>
