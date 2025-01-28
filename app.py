@@ -29,7 +29,7 @@ def lobby():
 
 @app.route('/game/<room_name>')
 def game(room_name):
-    # Aquí se mostraría la sala y los jugadores en ella
+    # Aquí se mostrará la lista de jugadores en la sala
     room_players = [player for player, room in players.items() if room == room_name]
     return render_template('game.html', room_name=room_name, players=room_players)
 
