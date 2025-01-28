@@ -1,2 +1,7 @@
 # Activar venv 
 # source venv/bin/activate
+
+#git add .
+#git commit -m "Mensaje"
+
+#git push origin main
